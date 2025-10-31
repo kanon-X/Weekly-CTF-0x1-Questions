@@ -1,0 +1,36 @@
+# 🕵️‍♂️ Sentinel : Network Challenge
+
+## 📝 Description
+Late last night, a semi-autonomous AI fuzzing agent—internally codenamed **Whisper**—initiated a high-volume entropy cascade against our staging web application, specifically targeting the `/auth`, `/session`, and `/debug` endpoints.
+
+The fuzzer generated thousands of synthetic requests using:
+- Randomized headers  
+- Malformed cookie chains  
+- Speculative replay tokens derived from entropy drift in the session cache  
+
+While most traffic was dismissed as noise, our telemetry backend flagged **one anomalous request**:
+- Timestamp offset  
+- Header misalignment  
+- Payload structure hinting at a latent debug handler being triggered  
+
+This request may have exposed a sensitive artifact—possibly a serialized token or a misconfigured response object.
+
+**File :** [ Network file](Network/network-traffic.pcap.Z.zst)
+`SHA1: d8454c16b5e818d23a5981580542153d4dba25e9`
+## 🎯 Objective
+Your task is to:
+- Sift through the provided access logs  
+- Isolate the entropy-skewed request  
+- Identify any replay tokens, debug artifacts, or session anomalies that stand out from the baseline  
+- Reconstruct the missing response through forensic replay or token injection  
+
+⚠️ The flag is **not logged directly**. It is embedded in a response that was triggered but never captured.
+
+
+## 🧠 Challenge Notes
+- The logs are dense  
+- Patterns are subtle  
+- The fuzzer mimics legitimate traffic  
+- Only **one request** holds the key  
+
+**Flag Format :**  xxxx{xxx_xx_xxx_xxxx}
