@@ -5,6 +5,7 @@ This is a **reversing challenge** involving a small Linux ELF binary. The progra
 Your goal is to reverse-engineer the binary and discover the correct serial that triggers the decryption routine and reveals the flag.
 
 **File**: [ctf_problem.7z](ctf_problem.7z)
+
 `SHA1:
 505902ed8515bf7d06bccfe6243135596c75f298`
 
@@ -19,7 +20,8 @@ Your goal is to reverse-engineer the binary and discover the correct serial that
 
 **Example:**
  `./hey_boy wrong_serial`
-  `-> Wrong serial. Try again.`
+ 
+ `-> Wrong serial. Try again.`
 
 
 
